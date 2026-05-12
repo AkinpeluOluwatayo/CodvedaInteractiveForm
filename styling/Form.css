@@ -1,0 +1,149 @@
+:root {
+    --bg: #050505;
+    --card: #121212;
+    --accent: #0071e3;
+    --error: #ff453a;
+    --success: #30d158;
+    --text: #f5f5f7;
+    --text-dim: #a1a1a6;
+    --border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Use min-height to allow scrolling if the screen is tiny,
+       but use height for centering on desktop */
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px; /* Provides a safety buffer for the badge */
+}
+
+.form-wrapper {
+    background: var(--card);
+    padding: 2.5rem;
+    border-radius: 24px;
+    border: 1px solid var(--border);
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+/* THE "ZOOMED OUT" FIX FOR DESKTOP */
+@media (min-width: 1024px) {
+    .form-wrapper {
+        /* This creates the "zoomed out" effect while keeping text crisp */
+        transform: scale(0.85);
+        padding: 2rem 2.5rem;
+        margin-top: 10px; /* Leaves room for the badge at the top */
+    }
+
+    h2 {
+        font-size: 1.6rem !important;
+        margin-bottom: 0.4rem !important;
+    }
+
+    .subtitle {
+        font-size: 0.85rem !important;
+        margin-bottom: 1.2rem !important;
+    }
+
+    .input-group {
+        margin-bottom: 0.8rem !important;
+    }
+
+    input {
+        padding: 10px 14px !important;
+        font-size: 0.9rem !important;
+    }
+
+    .brand-badge {
+        /* Ensures badge stays visible even when scaled */
+        top: -15px !important;
+        font-size: 0.65rem !important;
+    }
+}
+
+.brand-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+h2 { font-size: 2rem; font-weight: 800; margin-bottom: 8px; letter-spacing: -1px; }
+h2 span { color: var(--accent); }
+.subtitle { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 30px; line-height: 1.4; }
+
+.input-group { margin-bottom: 20px; text-align: left; }
+label { display: block; margin-bottom: 6px; font-size: 0.8rem; font-weight: 600; color: var(--text-dim); }
+
+input {
+    width: 100%;
+    padding: 14px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    color: white;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: rgba(0, 113, 227, 0.08);
+}
+
+.error-msg {
+    color: var(--error);
+    font-size: 0.7rem;
+    margin-top: 4px;
+    display: none;
+}
+
+.strength-meter { height: 4px; background: var(--border); margin-top: 8px; border-radius: 2px; overflow: hidden; }
+#strengthBar { height: 100%; width: 0%; transition: 0.4s ease; }
+
+button {
+    width: 100%;
+    padding: 15px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 18px;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+}
+
+.form-footer a { color: var(--accent); text-decoration: none; font-weight: 600; }

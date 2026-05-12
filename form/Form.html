@@ -1,10 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHONIX | Sign Up</title>
+    <link rel="stylesheet" href="../styling/Form.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
+<div class="form-wrapper">
+    <div class="brand-badge">PHONIX Sign Up</div>
+
+    <form id="registrationForm" class="interactive-form" novalidate>
+        <h2>Start your journey<span>.</span></h2>
+        <p class="subtitle">Create your account to access exclusive innovations.</p>
+
+        <div class="input-group">
+            <label for="username">Full Name</label>
+            <input type="text" id="username" placeholder="e.g. Tayo Akinpelu" required>
+            <span class="error-msg" id="usernameError">Name is required (min 3 characters)</span>
+        </div>
+
+        <div class="input-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="tayo@example.com" required>
+            <span class="error-msg" id="emailError">Please enter a valid email address</span>
+        </div>
+
+        <div class="input-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" placeholder="+234..." required>
+            <span class="error-msg" id="phoneError">Invalid phone format (min 10 digits)</span>
+        </div>
+
+        <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="••••••••" required>
+            <div class="strength-meter"><div id="strengthBar"></div></div>
+            <span class="error-msg" id="passwordError">Min 8 characters, include a number</span>
+        </div>
+
+        <button type="submit" id="submitBtn">Create PHONIX ID</button>
+
+        <p class="form-footer">
+            Already have an account? <a href="#">Sign in</a>
+        </p>
+
+        <div id="successMessage" class="success-box" style="display: none;">
+            Welcome to PHONIX! Account created successfully.
+        </div>
+    </form>
+</div>
+
+<script src="../script/InteractiveForm.js"></script>
 </body>
 </html>
